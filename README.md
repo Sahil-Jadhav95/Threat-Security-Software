@@ -1,107 +1,145 @@
-# 🚨 Threat Security Software (TSS)
+# Threat Security Software (TSS)
 
-## Real-Time Employee Danger & Safety Detection System
+<p align="center">
 
-**Machine Learning | Computer Vision | Industrial Safety**
+![Python](https://img.shields.io/badge/Python-3.9-blue?style=for-the-badge)
+![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green?style=for-the-badge)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-Google-orange?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-blueviolet?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Research%20Prototype-success?style=for-the-badge)
 
----
+</p>
 
-## 📌 Project Overview
+## Real-Time Employee Danger and Safety Detection System
 
-**Threat Security Software (TSS)** is a real-time safety monitoring system designed to **detect dangerous human postures in industrial environments** and **prevent workplace accidents**.
-The system leverages **computer vision and pose estimation** to continuously monitor human hand and body movements using live camera feeds and triggers immediate safety actions when unsafe proximity to hazardous zones is detected.
-
-Unlike traditional safety systems, TSS is a **software-only solution** that utilizes **existing CCTV/webcam infrastructure**, eliminating dependency on physical sensors.
-
----
-
-## 🎯 Problem Statement
-
-Manual supervision in high-risk industrial environments is:
-
-* Error-prone
-* Costly
-* Not scalable
-
-Unsafe hand positions near machinery often lead to **severe injuries or fatal accidents**.
-TSS addresses this problem by providing an **automated, non-intrusive, real-time posture detection system**.
+**Computer Vision | Industrial Safety | Real-Time Monitoring**
 
 ---
 
-## 🧠 Solution Approach
+## Overview
 
-The system uses:
+Threat Security Software (TSS) is a real-time computer vision prototype developed to monitor employee hand movements near predefined machine safety boundaries. The system utilizes **OpenCV** for live video processing and **MediaPipe Hands** together with **MediaPipe Holistic** for accurate hand and pose landmark detection.
 
-* **MediaPipe Holistic & Hand Landmark Models** for precise keypoint detection
-* **OpenCV** for real-time video processing
-* **Geometric distance analysis** to detect violation of safety boundaries
-* **Rule-based decision logic** to trigger alerts and shutdown actions
+The application continuously analyzes live webcam frames, computes the distance between selected fingertip landmarks and a virtual danger boundary, and generates a warning when a safety violation is detected. By relying solely on camera-based monitoring, TSS demonstrates a cost-effective approach to industrial safety without requiring dedicated hardware sensors.
 
 ---
 
-## ⚙️ Key Features
+## Key Features
 
-* ✅ **Real-Time Hand & Body Pose Detection**
-* ✅ **Danger Zone Violation Detection**
-* ✅ **Machine Safety Boundary Enforcement**
-* ✅ **Immediate Alert & System Shutdown Trigger**
-* ✅ **No Sensor Dependency**
-* ✅ **High FPS Real-Time Processing**
-* ✅ **Works with Standard Webcams / CCTV Feeds**
-
----
-
-## 🧩 System Architecture (High-Level)
-
-1. Live video input captured from webcam/CCTV
-2. Frame preprocessing using OpenCV
-3. Pose & hand landmark extraction using MediaPipe
-4. Distance computation between landmarks and danger lines
-5. Safety rule evaluation
-6. Alert generation and system response
+- Real-time webcam video processing
+- Hand landmark detection using MediaPipe Hands
+- Pose estimation using MediaPipe Holistic
+- Fingertip proximity analysis against predefined safety boundaries
+- Bounding box visualization for detected hands
+- Real-time confidence score and FPS display
+- Optional black mask mode for focused visualization
 
 ---
 
-## 🛠️ Technology Stack
+## System Workflow
 
-| Category             | Technology                   |
-| -------------------- | ---------------------------- |
-| Programming Language | Python 3.9                   |
-| Computer Vision      | OpenCV                       |
-| Pose Estimation      | MediaPipe (Hands & Holistic) |
-| Numerical Computing  | NumPy, SciPy                 |
-| IDE                  | VS Code / PyCharm            |
-| OS Support           | Windows / Linux / macOS      |
-
----
-
-## 📁 Project Structure
-
-```bash
-.
-├── EmployeeDangerSafetyFinal.py   # Main execution script
-├── requirements.txt               # Project dependencies
-├── README.md                      # Project documentation
+```text
+Webcam
+   │
+   ▼
+Frame Capture (OpenCV)
+   │
+   ▼
+Image Preprocessing
+   │
+   ▼
+MediaPipe Hands & Holistic
+   │
+   ▼
+Landmark Detection
+   │
+   ▼
+Safety Boundary Mapping
+   │
+   ▼
+Distance Calculation
+   │
+   ▼
+Violation Detection
+   ├───────────────┐
+   │               │
+   ▼               ▼
+Display Warning   Continue Monitoring
+   │               │
+   └──────┬────────┘
+          │
+          ▼
+Annotated Video Output
 ```
 
 ---
 
-## 🚀 Steps to Execute the Project
+## System Architecture
 
-### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/your-username/threat-security-software.git
-cd threat-security-software
+```mermaid
+flowchart LR
+    A[Webcam] --> B[OpenCV]
+    B --> C[Preprocessing]
+    C --> D[MediaPipe Hands]
+    C --> E[MediaPipe Holistic]
+    D --> F[Hand Landmarks]
+    F --> G[Distance Calculation]
+    G --> H{Violation?}
+    H -->|Yes| I[Display Warning]
+    H -->|No| J[Continue]
+    E --> K[Pose Overlay]
+    J --> L[Display Frame]
+    I --> L
+    K --> L
 ```
 
 ---
 
-### 2️⃣ Create & Activate Virtual Environment (Recommended)
+## Technology Stack
+
+| Category | Technology |
+|----------|------------|
+| Programming Language | Python 3.9 |
+| Computer Vision | OpenCV |
+| Pose Estimation | MediaPipe Hands, MediaPipe Holistic |
+| Numerical Computing | NumPy, SciPy |
+| Runtime | Webcam / Camera Feed |
+
+---
+
+## Project Structure
+
+```text
+Threat-Security-Software/
+│
+├── assets/
+│   ├── console-output.png
+│   ├── hand-detection.png
+│   └── live-detection.png
+│
+├── EmployeeDangerSafetyFinal.py
+├── README.md
+└── requirements.txt
+```
+---
+
+## Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Sahil-Jadhav95/Threat-Security-Software.git
+
+cd Threat-Security-Software
+```
+
+### Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
+
+### Activate the Virtual Environment
 
 **Windows**
 
@@ -115,69 +153,84 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
----
-
-### 3️⃣ Install Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> ⚠️ **Python 3.9 is strongly recommended** due to MediaPipe compatibility.
+> **Note:** Python 3.9 is recommended for optimal MediaPipe compatibility.
 
 ---
 
-### 4️⃣ Run the Application
+## Usage
+
+Run the application:
 
 ```bash
 python EmployeeDangerSafetyFinal.py
 ```
 
----
+During execution, the application will:
 
-## 📸 Output & Behavior
+- Open the default webcam.
+- Detect hand and pose landmarks in real time.
+- Draw safety and machine boundary lines.
+- Display hand bounding boxes.
+- Show confidence scores and FPS.
+- Print a warning message when a fingertip enters the danger zone.
 
-* Live video feed window opens
-* Blue line → **Safety Boundary**
-* Red line → **Machine Danger Zone**
-* If any finger or hand crosses the danger line:
+### Keyboard Controls
 
-  * Warning is displayed
-  * System prints shutdown alert
-  * Safety action is triggered
-
----
-
-## ⚠️ Important Notes
-
-* Webcam access is mandatory
-* Ensure proper lighting for accurate detection
-* Run inside virtual environment for stability
-* MediaPipe may fail on Python ≥ 3.11
+| Key | Action |
+|-----|--------|
+| `Esc` | Exit the application |
+| `M` | Toggle black mask mode |
 
 ---
 
-## 🏭 Applications
+## Sample Output
 
-* Industrial safety monitoring
-* Manufacturing plants
-* Construction sites
-* Restricted area surveillance
-* Touchless safety systems
-* Accident prevention systems
+The application displays:
+
+- Live webcam feed
+- Hand landmarks
+- Pose landmarks
+- Hand bounding boxes
+- Safety boundary line
+- Machine danger line
+- FPS counter
+- Detection confidence
+- Warning message when a safety violation occurs
+
+| Normal Detection | Black Mask Mode | Console output |
+|:----------------:|:----------------:|:---------------:|
+| <img src="assets/live-detection.png" width="80%"> | <img src="assets/hand-detection.png" width="80%"> | <img src="assets/console-output.png" width="80%"> |
 
 ---
 
-## 📈 Future Enhancements
+## Applications
 
-* Machine learning–based posture classification
-* Integration with PLC / IoT controllers
-* Audio-visual alert systems
-* Multi-camera support
-* Predictive accident analytics
+- Industrial safety monitoring
+- Manufacturing plants
+- Assembly line monitoring
+- Machine operator safety
+- Restricted-area monitoring
 
 ---
 
-## 📄 License
+## Future Enhancements
 
-This project is developed for **academic and research purposes**.
+- Multi-camera support
+- Configurable danger zones
+- Audio and visual alarm integration
+- PLC and IoT integration
+- AI-based posture classification
+- Incident logging and analytics dashboard
+- Web-based monitoring interface
+
+---
+
+## License
+
+This project is developed for academic and research purposes.
