@@ -3,7 +3,7 @@ import mediapipe as mp
 import math, scipy.spatial, time, subprocess
 
 #keep the value float
-confidence_val = 0.7
+confidence_val = 0.7 
 
 #True for black Mask Mode
 black_mask = False
