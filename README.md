@@ -117,7 +117,7 @@ Threat-Security-Software/
 │   ├── hand-detection.png
 │   └── live-detection.png
 │
-├── EmployeeDangerSafetyFinal.py
+├── SafetyGuard.py
 ├── README.md
 └── requirements.txt
 ```
