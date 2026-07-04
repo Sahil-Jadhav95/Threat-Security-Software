@@ -205,7 +205,7 @@ The application displays:
 
 | Normal Detection | Black Mask Mode | Console output |
 |:----------------:|:----------------:|:---------------:|
-| <img src="assets/live-detection.png" width="80%"> | <img src="assets/hand-detection.png" width="80%"> | <img src="assets/console-output.png" width="80%"> |
+| <img src="assets/live-detection.png" width="80%"> | <img src="assets/black-mask-mode.png" width="80%"> | <img src="assets/console-output.png" width="80%"> |
 
 ---
 
